@@ -1,0 +1,13 @@
+name: pymol_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pymol-open-source
+  - trimesh
+  - pyglet<2.0
+  - tqdm
+  - scipy
