@@ -2,16 +2,20 @@ import pymol
 from pymol import cmd
 
 from pdb_2_obj import new_scene, chainbows, save, add_separated_colored_selection
+import colorsys
+
+def pretty_color_by_hue(hue) -> tuple:
+    return colorsys.hsv_to_rgb(hue, 0.7, 0.8)
+
+def set_color(id, col):
+    cmd.set("cartoon_color", col, id)
+    cmd.set("surface_color", col, id)
+    cmd.set("stick_color", col, id)
 
 
 def hsp27():
     # Hsp27 F 29 and 33 additioally tyr 66 trp 53 glu 48
     # TK 48,66,90,93,139
-
-    def set_color(id, col):
-        cmd.set("cartoon_color", col, id)
-        cmd.set("surface_color", col, id)
-        cmd.set("stick_color", col, id)
 
     cmd.delete("all")
     cmd.load("proteins/1osn.cif", "tk")
@@ -81,7 +85,38 @@ def ribosome():
     scene = chainbows(scene, "4v6x", "surface", separate=True)
     save(scene, "models/ribosome", "ribosome")
 
+def rad52():
+    cmd.load("proteins/1kn0.cif")
+
+    scene = new_scene()
+    scene = chainbows(scene, "1kn0", "surface", separate=True)
+    save(scene, "models/rad52", "rad52_surface")
+
+    scene = new_scene()
+    scene = chainbows(scene, "1kn0", "cartoon", separate=True)
+    save(scene, "models/rad52", "rad52_cartoon")
+
+    cmd.create("chainA", "chain A")
+
+    scene = new_scene()
+    scene = chainbows(scene, "chainA", "surface", separate=True)
+    save(scene, "models/rad52", "rad52_A_surface")
+
+    scene = new_scene()
+    scene = chainbows(scene, "chainA", "cartoon", separate=True)
+    save(scene, "models/rad52", "rad52_A_cartoon")
+
+def mpro():
+    cmd.load("proteins/5re9.cif")
+    cmd.hide("all")
+    cmd.select("ligand", "resn LPZ")
+    cmd.create("protein", "chain A")
+    cmd.set("stick_color", "hotpink", "ligand")
+    set_color("protein", "lightorange")
+    cmd.show("surface", "protein")
+    cmd.show("sticks", "ligand")
+    cmd.save("mpro.wrl")
 
 if __name__ == '__main__':
     pymol.finish_launching()
-    ribosome()
+    mpro()
