@@ -3,7 +3,7 @@ import os
 
 import trimesh
 from pymol import cmd
-
+from tqdm import tqdm
 
 def face_tuple(face, offset):
     vertices = face.split(' ')[1:] # f v1 v2 v3
@@ -61,7 +61,7 @@ def chainbows(scene, name, rep, separate=False) -> tuple:
     chains = cmd.get_chains(name)
     colors = rainbow(len(chains), 0.7, 0.8)
 
-    for chain, color in zip(chains, colors):
+    for chain, color in tqdm(zip(chains, colors)):
         if separate:
             scene = add_separated_colored_selection(scene, f"chain {chain}", rep, color)
         else:
