@@ -1,0 +1,15 @@
+Rad52 (1kn0)
+    - chain A cartoon
+    - chain A surface
+    - 11mer?
+
+GyrA (sy3p)
+    - chain A surface (resi 83/87 colored red)
+    - ligand sm8 sticks
+
+Hsp27/TK (1osn)
+    - cartoon, binding site and residues (according to script)
+
+bcl2/bax (2xa0)
+    - bcl2 surface
+    - bax cartoon
