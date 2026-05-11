@@ -78,7 +78,8 @@ Starting PyMol:
 ```bash
 conda run --prefix ./pymol_env python -m pymol
 ```
-
+### LNoS World Download
+[Click here!](https://drive.google.com/drive/folders/1YFZ4ZIgS_ouvN1RJIoiOrKNp4Gyjdx4Y?usp=drive_link)
 
 
 ## Bugs & Fixes
