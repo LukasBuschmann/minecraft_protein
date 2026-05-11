@@ -79,8 +79,7 @@ Starting PyMol:
 conda run --prefix ./pymol_env python -m pymol
 ```
 ### LNoS World Download
-[Click here!](https://drive.google.com/drive/folders/1YFZ4ZIgS_ouvN1RJIoiOrKNp4Gyjdx4Y?usp=drive_link)
-
+[Click here!](https://drive.google.com/file/d/1O7jn98xJLtaOXN46ZRCv16KFzTjRO5LH/view?usp=drive_link)
 
 ## Bugs & Fixes
 ### Minecraft Launcher crashes on startup on Arch-Linux
